@@ -1,0 +1,43 @@
+\title{Assignment 2: CS 663, Fall 2021}
+\author{}
+\date{Due: 28th August before 11:55 pm}
+
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage[margin=0.5in]{geometry}
+\begin{document}
+\maketitle
+
+\textbf{Remember the honor code while submitting this (and every other) assignment. You may discuss broad ideas with other students or ask me for any difficulties, but the code you implement and the answers you write must be your own. We will adopt a \textbf{zero-tolerance policy} against any violation.}
+\\
+\\
+\textbf{Submission instructions:} Follow the instructions for the submission format and the naming convention of your files from the submission guidelines file in the homework folder. Please see \textsf{assignment2.zip} in the homework folder. For all the questions, write your answers and scan them, or type them out in word/Latex. In eithe case, create a separate PDF file. The last two questions will also have code in addition to the PDF file. Once you have finished the solutions to all questions, prepare a single zip file and upload the file on moodle \emph{before} 11:55 pm on 28th August.  \textbf{Only one student per group should submit the assignment.} We will not penalize submission of the files till 10 am on 29th August. \textbf{No assignments will be accepted after this time.} Please preserve a copy of all your work until the end of the semester.  \textbf{Your zip file should have the following naming convention:} RollNumber1\_RollNumber2\_RollNumber3.zip for three-member groups, RollNumber1\_RollNumber2.zip for two-member groups and RollNumber1.zip for single-member groups. 
+
+\begin{enumerate}
+\item Consider a 1D convolution mask given as $(w_0, w_1,..., w_6)$. Express the convolution of the mask with a 1D image $f$ as the multiplication of a suitable matrix with the image vector $f$. What are the properties of this matrix? What could be a potential application of such a matrix-based construction? \textsf{[10 points]}
+
+\item In bicubic interpolation, the image intensity value is expressed in the form $v(x,y) = \sum_{i=0}^{3} \sum_{j=0}^{3} a_{ij} x^i y^j$ where $a_{ij}$ are the coefficients of interpolation and $(x,y)$ are spatial coordinates. This uses sixteen nearest neighbors of a point $(x,y)$. Given the intensity values of these 16 neighbors, explain with the help of matrix-based equations, how one can determine the coefficients $a_{ij}$ that determine the function $v(x,y)$? Why do you require 16 neighbors for determining the coefficients? \textsf{[10 points]}
+
+\item Consider a clean image $I(x,y)$ which gets corrupted by additive noise randomly and independently from a zero mean Gaussian distribution with standard deviation $\sigma$. Derive an expression for the PDF of the resulting noisy image. Assume continuous-valued intensities. \textsf{[10 points]}
+
+\item Prove or disprove: (a) The Laplacian mask with a $-4$ in the center (see class slides) is a separable filter. (b) The Laplacian mask with a $-4$ in the center (see class slides) can be implemented entirely using 1D convolutions. \textsf{[5+5=10 points]}
+
+\item Suppose I convolve an image $f$ with a mean-filter of size $(2a+1) \times (2a+1)$ where $a > 0$ is an integer to produce a result $f_1$. Suppose I convolve the resultant image $f_1$ with the same mean filter once again to produce an image $f_2$, and so on until you get image $f_K$ in the $K$th iteration. Can you express $f_K$ as a convolution of $f$ with some kernel. If not, why not? If yes, with what kernel? Justify. \textsf{[10 points]}
+
+\item Consider a 1D ramp image of the form $I(x) = cx + d$ where $c,d$ are scalar coefficients. Derive an expression for the image $J$ which results when $I$ is filtered by a zero-mean Gaussian with standard deviation $\sigma$. Derive an expression for the image that results when $I$ is treated with a bilateral filter of parameters $\sigma_s, \sigma_r$. (Hint: in both cases, you get back the same image.) Ignore any border issues, i.e. assume the image had infinite extent. \textsf{[10 points]}
+
+\item Prove that the Laplacian operator is rotationally invariant. For this consider a rotation of the coordinate system from $(x,y)$ to $u = x \cos \theta - y \sin \theta, v = x \sin \theta + y \cos \theta$, and show that $f_{xx} + f_{yy} = f_{uu} + f_{vv}$ for any image $f$. \textsf{[10 points]}
+
+\item Consider the two images in the homework folder `barbara256.png' and `kodak24.png'. Add zero-mean Gaussian noise with standard deviation $\sigma = 5$ to both of them. Implement a bilateral filter and show the outputs of the bilateral filter on both images for the following parameter configurations: $(\sigma_s = 2, \sigma_r = 2); (\sigma_s = 0.1, \sigma_r = 0.1); (\sigma_s = 3, \sigma_r = 15)$. Comment on your results in your report. Repeat when the image is corrupted with zero-mean Gaussian noise of $\sigma = 10$ (with the same bilaterial filter parameters). Comment on your results in your report. For the bilateral filter implementation, write a MATLAB function \texttt{mybilateralfilter.m} which takes as input an image and parameters $\sigma_r, \sigma_s$. Implement your filter using at the most two nested for-loops for traversing the image indices. For creating the filter, use functions like meshgrid and vectorization for more efficient implementation. Include all image ouputs as well as noisy images in the report. \textsf{[15 points]}
+
+\item Implement local histogram equalization of sizes $7 \times 7, 31 \times 31, 51 \times 51, 71 \times 71$ on the images `LC1.jpg' and `LC2.jpg' from the homework folder. Comment on your results in your report and compare it to global histogram equalization, which you can use from the image processing toolbox of MATLAB. Point out regions where the local method produces better local contrast than the global histogram equalization. \textsf{[15 points]}
+
+\end{enumerate}
+
+
+
+\end{document}
