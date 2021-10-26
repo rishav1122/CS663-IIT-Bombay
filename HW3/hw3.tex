@@ -1,0 +1,45 @@
+\title{Assignment 3: CS 663, Fall 2021}
+\author{}
+\date{Due: 7th October before 11:55 pm}
+
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref,graphicx}
+\usepackage{ulem}
+\usepackage[margin=0.5in]{geometry}
+\begin{document}
+\maketitle
+
+\textbf{Remember the honor code while submitting this (and every other) assignment. You may discuss broad ideas with other students or ask me for any difficulties, but the code you implement and the answers you write must be your own. We will adopt a \textbf{zero-tolerance policy} against any violation.}
+\\
+\\
+\textbf{Submission instructions:} Follow the instructions for the submission format and the naming convention of your files from the submission guidelines file in the homework folder. Please see \textsf{assignment3.zip} in the homework folder. For all the questions, write your answers and scan them, or type them out in word/Latex. In eithe case, create a separate PDF file. The last two questions will also have code in addition to the PDF file. Once you have finished the solutions to all questions, prepare a single zip file and upload the file on moodle \emph{before} 11:55 pm on 7th October.  \textbf{Only one student per group should submit the assignment.} We will not penalize submission of the files till 10 am on 8th October. \textbf{No assignments will be accepted after this time.} Please preserve a copy of all your work until the end of the semester.  \textbf{Your zip file should have the following naming convention:} RollNumber1\_RollNumber2\_RollNumber3.zip for three-member groups, RollNumber1\_RollNumber2.zip for two-member groups and RollNumber1.zip for single-member groups. 
+
+\begin{enumerate}
+\item Consider the two images in the homework folder `barbara256.png' and `kodak24.png'. Add zero-mean Gaussian noise with standard deviation $\sigma = 5$ to both of them. Implement a mean shift based filter and show the outputs of the mean shift filter on both images for the following parameter configurations: $(\sigma_s = 2, \sigma_r = 2); (\sigma_s = 0.1, \sigma_r = 0.1); (\sigma_s = 3, \sigma_r = 15)$. Comment on your results in your report. Repeat when the image is corrupted with zero-mean Gaussian noise of $\sigma = 10$ (with the same bilaterial filter parameters). Comment on your results in your report. Include all image ouputs as well as noisy images in the report. \textsf{[20 points]}
+
+\item Consider the barbara256.png image from the homework folder. Implement the following in MATLAB: (a) an ideal low pass filter with cutoff frequency $D \in \{40, 80\}$, (b) a Gaussian low pass filter with $\sigma \in \{40,80\}$. Show the effect of these on the image, and display all filtered images in your report. Display the frequency response (in log absolute Fourier format) of all filters in your report as well. Comment on the differences in the outputs. Also display the log absolute Fourier transform of the original and filtered images. Comment on the differences in the outputs. Make sure you perform appropriate zero-padding while doing the filtering! \textsf{[20 points]}
+
+\item Prove the convolution theorem for 2D Discrete fourier transforms. \textsf{[10 points]}
+
+\item You can use the Fourier transform to compute the Laplacian of an image. But can you use the Fourier transform to compute the gradient magnitude at every pixel in an image? If yes, explain how you will do it. If not, explain why this is not possible. \textsf{[10 points]}
+
+\item If a function $f(x,y)$ is real, prove that its Discrete Fourier transform $F(u,v)$ satisfies $F^*(u,v) = F(-u,-v)$. If $f(x,y)$ is real and even, prove that $F(u,v)$ is also real and even. The function $f(x,y)$ is an even function if $f(x,y) = f(-x,-y)$. \textsf{[15 points]}
+
+\item If $\mathcal{F}$ is the continuous Fourier operator, prove that $\mathcal{F}(\mathcal{F}(\mathcal{F}(\mathcal{F}(f(t))))) = f(t)$. Hint: Prove that $\mathcal{F}(\mathcal{F}(f(t))) = f(-t)$ and proceed further from there. \textsf{[15 points]}
+
+\item Provide an explanation for the presence of strong spikes in the center of the filters in the second sub-figure Of Fig. \ref{fig:ff}. Note that the fourier transform magnitudes of these filters are plotted in the first figure. \textsf{[10 points]}
+\begin{figure}
+    \includegraphics[scale=0.8]{figure4.52.png}
+    \includegraphics[scale=0.8]{figure4.53.png}
+\caption{Figures required for the last question. Fourier domain (first figure) and spatial domain (second figure) representations of various filters.}
+\label{fig:ff}
+\end{figure}
+
+\end{enumerate}
+
+
+
+\end{document}
